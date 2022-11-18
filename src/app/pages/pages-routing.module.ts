@@ -11,6 +11,11 @@ const routes: Routes = [{
   component: PagesComponent,
   children: [
     {
+      path: 'partido',
+      loadChildren: () => import('./partido/partido.module')
+      .then(m => m.PartidoModule),
+      },
+    {
       path: 'dashboard',
       component: ECommerceComponent,
     },
