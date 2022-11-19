@@ -11,12 +11,20 @@ const routes: Routes = [{
   component: PagesComponent,
   children: [
     {
+<<<<<<< HEAD
       path: 'seguridad',
       loadChildren: () => import('./seguridad/seguridad.module')
       .then(m => m.SeguridadModule),
     },
     {
 
+=======
+      path: 'partido',
+      loadChildren: () => import('./partido/partido.module')
+      .then(m => m.PartidoModule),
+      },
+    {
+>>>>>>> bf06854287c734f6ab2283b7ad1949f61fa78173
       path: 'dashboard',
       component: ECommerceComponent,
     },
