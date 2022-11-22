@@ -1,0 +1,32 @@
+<h4 class="mb-3">Lista de candidatos</h4>
+<table class="table">
+    <thead>
+      <tr>
+        <th *ngFor="let columna of nombreColumna">{{columna}}
+            
+        </th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        <ng-container *ngFor="let candidato of candidatos">
+            <tr>
+               <td>{{candidato.cedula}}</td>
+               <td>{{candidato.nombre}}</td>
+               <td>{{candidato.apellido}}</td>
+               <td>{{candidato.numeroResolucion}}</td>
+               <td>{{candidato.partido.nombre}}</td>
+               <td>
+                <button type="button" class="btn btn-primary"
+                (click)="editar(candidato._id)">
+                <i class="fas fa-pencil-alt"></i>
+                </button>
+                
+                <button type="button" class="btn btn-danger"
+                (click)="eliminar(candidato._id)">
+                <i class="fas fa-solid fa-trash"></i>
+                </button>
+                </td>
+            </tr>
+        </ng-container>
+    </tbody>
+  </table>
