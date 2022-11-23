@@ -22,11 +22,6 @@ const routes: Routes = [{
       .then(m => m.PartidoModule),
     },
     {
-      path: 'resultados',
-      loadChildren: () => import('./resultados/resultados.module')
-      .then(m => m.ResultadosModule),
-    },
-    {
 
       path: 'dashboard',
       component: ECommerceComponent,
