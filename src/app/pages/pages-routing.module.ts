@@ -11,18 +11,16 @@ const routes: Routes = [{
   component: PagesComponent,
   children: [
     {
-
       path: 'seguridad',
       loadChildren: () => import('./seguridad/seguridad.module')
       .then(m => m.SeguridadModule),
     },
     {
 
-
       path: 'partido',
       loadChildren: () => import('./partido/partido.module')
       .then(m => m.PartidoModule),
-      },
+    },
     {
 
       path: 'dashboard',

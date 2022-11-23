@@ -2,13 +2,27 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CandidatosRoutingModule } from './candidatos-routing.module';
+import { ListarComponent } from './listar/listar.component';
+import { CrearComponent } from './crear/crear.component';
+import { ActualizarComponent } from './actualizar/actualizar.component';
+import { BuscarComponent } from './buscar/buscar.component';
+import { EliminarComponent } from './eliminar/eliminar.component';
 
-
+import { NbCardModule } from '@nebular/theme';
+import { FormsModule } from '@angular/forms';
 @NgModule({
-  declarations: [],
+  declarations: [
+    ListarComponent,
+    CrearComponent,
+    ActualizarComponent,
+    BuscarComponent,
+    EliminarComponent
+  ],
   imports: [
     CommonModule,
-    CandidatosRoutingModule
+    CandidatosRoutingModule,
+    NbCardModule,
+    FormsModule
   ]
 })
 export class CandidatosModule { }

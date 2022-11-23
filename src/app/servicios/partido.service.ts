@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Partido } from '../modelos/partido.model';
+import { StringMap } from '@angular/compiler/src/compiler_facade_interface';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,22 +12,25 @@ export class PartidoService {
   
   constructor(private http: HttpClient) { }
   
-guardarDatosPartido(infoPartido: Partido){
-  return this.http.get<Partido>('http://127.0.0.1:7777/partido');
-}
-eliminarDatosPartido(infoPartido: Partido){
-  return this.http.delete<Partido>('http://127.0.0.1:7777/partido');
-}
-actualizarDatosPartido(infoPartido: Partido){
-  return this.http.put<Partido>('http://127.0.0.1:7777/partido', infoPartido);
-}
-buscarDatosPartido(infoPartido: Partido){
-  return this.http.get<Partido>('http://127.0.0.1:7777/partido');
+
+listar(): Observable<Partido[]> {
+    return this.http.get<Partido[]>(`${environment.url_api_gateway}/partidos`);
 }
 
-listarDatosPartido(infoPartido: Partido){
-  
+crear(elPartido : Partido) {
+return this.http.post(`${environment.url_api_gateway}/partidos`,
+elPartido);
 }
+editar(id:string,elPartido: Partido) {
+return this.http.put(`${environment.url_api_gateway}/partidos/${id}`,
+elPartido);
+}
+eliminar(id:String) {
+  return this.http.delete(`${environment.url_api_gateway}/partidos/${id}`);
 
 }
+getPartido(id: string): Observable<Partido> {
+  return  this.http.get<Partido>(`${environment.url_api_gateway}/partidos/${id}`);
+  }
 
+}
