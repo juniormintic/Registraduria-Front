@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Candidato } from '../../../modelos/candidato.mode';
 import { CandidatoService } from '../../../servicios/candidato.service';
+
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 @Component({
@@ -9,8 +10,9 @@ import Swal from 'sweetalert2';
   styleUrls: ['./listar.component.scss']
 })
 export class ListarComponent implements OnInit {
-  nombreColumnas=["Cedula","Nombre","Apellido","Numero resolucion","Opciones"];
+  nombreColumnas=["Cedula","Nombre","Apellido","Numero resolucion","Partido","Opciones"];
   candidatos =[];
+
 
   constructor(private miServicioCandidato:CandidatoService , private router: Router) { }
 
@@ -32,6 +34,8 @@ export class ListarComponent implements OnInit {
         }
       )
   }
+  
+  
   eliminar(id:string):void{
     Swal.fire({
       title: 'Eliminar candidato',

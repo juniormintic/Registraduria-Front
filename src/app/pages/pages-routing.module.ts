@@ -23,6 +23,12 @@ const routes: Routes = [{
     },
     {
 
+      path: 'candidato',
+      loadChildren: () => import('./candidatos/candidatos.module')
+      .then(m => m.CandidatosModule),
+    },
+    {
+
       path: 'dashboard',
       component: ECommerceComponent,
     },

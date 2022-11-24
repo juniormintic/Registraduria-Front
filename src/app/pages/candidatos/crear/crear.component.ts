@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Candidato } from '../../../modelos/candidato.mode';
 import { CandidatoService } from '../../../servicios/candidato.service';
+import { PartidoService } from '../../../servicios/partido.service';
 import Swal from 'sweetalert2';
+
 @Component({
   selector: 'ngx-crear',
   templateUrl: './crear.component.html',
@@ -16,13 +18,15 @@ export class CrearComponent implements OnInit {
     cedula: "",
     nombre: "",
     apellido: "",
-    numeroResolucion:""
+    numeroResolucion:"",    
   }
+
   constructor(private miServicioCandidatos: CandidatoService,
     private rutaActiva: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit(): void {
+
     if (this.rutaActiva.snapshot.params.id_candidato) {
       this.modoCreacion = false;
       this.id_candidato = this.rutaActiva.snapshot.params.id_candidato;
@@ -31,6 +35,10 @@ export class CrearComponent implements OnInit {
       this.modoCreacion = true;
     }
   }
+
+  
+
+
   getCandidato(id: string) {
     this.miServicioCandidatos.getCandidato(id).
       subscribe(data => {
@@ -38,6 +46,7 @@ export class CrearComponent implements OnInit {
       });
   }
   agregar(): void {
+    console.log(this.elCandidato)
     if (this.validarDatosCompletos()) {
       this.intentoEnvio = true;
       this.miServicioCandidatos.crear(this.elCandidato).

@@ -1,4 +1,4 @@
-import { PartidoModule } from "../pages/partido/partido.module";
+import { Partido } from "./partido.model";
 
 export class Candidato {
     _id?:string;
