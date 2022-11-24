@@ -1,8 +1,12 @@
 <h4 class="mb-3">Lista de candidatos</h4>
+      <button type="button" class="btn btn-success"
+      (click)="agregar()">
+      <i class="fas fa-plus"></i>
+      </button>
 <table class="table">
     <thead>
       <tr>
-        <th *ngFor="let columna of nombreColumna">{{columna}}
+        <th *ngFor="let columna of nombreColumnas">{{columna}}
             
         </th>
       </tr>
