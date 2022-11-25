@@ -11,7 +11,7 @@ import { SeguridadService } from '../../../servicios/seguridad.service';
 })
 export class LoginComponent implements OnInit {
 
-  correo: string = "";
+  email: string = "";
   contrasenia: string = "";
 
   constructor(private miServicioSeguridad: SeguridadService, 
@@ -23,10 +23,10 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    console.log("Correo: ", this.correo, " Contraseña:", this.contrasenia)
+    console.log("Correo: ", this.email, " Contraseña:", this.contrasenia)
 
     let infoUsuario: Usuario = {
-      correo: this.correo,
+      email: this.email,
       contrasenia: this.contrasenia
     }
 

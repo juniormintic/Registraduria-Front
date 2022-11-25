@@ -28,6 +28,11 @@ const routes: Routes = [{
       .then(m => m.CandidatosModule),
     },
     {
+      path: 'resultados',
+      loadChildren: () => import('./resultados/resultados.module')
+      .then(m => m.ResultadosModule),
+    },
+    {
 
       path: 'dashboard',
       component: ECommerceComponent,
