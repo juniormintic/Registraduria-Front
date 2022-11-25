@@ -14,23 +14,23 @@ export class PartidoService {
   
 
 listar(): Observable<Partido[]> {
-    return this.http.get<Partido[]>(`${environment.url_api_gateway}/partidos`);
+    return this.http.get<Partido[]>(`${environment.url_api_gateway}/partido`);
 }
 
 crear(elPartido : Partido) {
-return this.http.post(`${environment.url_api_gateway}/partidos`,
+return this.http.post(`${environment.url_api_gateway}/partido`,
 elPartido);
 }
 editar(id:string,elPartido: Partido) {
-return this.http.put(`${environment.url_api_gateway}/partidos/${id}`,
+return this.http.put(`${environment.url_api_gateway}/partido/${id}`,
 elPartido);
 }
 eliminar(id:String) {
-  return this.http.delete(`${environment.url_api_gateway}/partidos/${id}`);
+  return this.http.delete(`${environment.url_api_gateway}/partido/${id}`);
 
 }
 getPartido(id: string): Observable<Partido> {
-  return  this.http.get<Partido>(`${environment.url_api_gateway}/partidos/${id}`);
+  return  this.http.get<Partido>(`${environment.url_api_gateway}/partido/${id}`);
   }
 
 }

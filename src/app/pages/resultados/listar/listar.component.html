@@ -13,19 +13,19 @@
       </tr>
     </thead>
     <tbody class="table-group-divider">
-      <ng-container *ngFor="let partido of partidos">
+      <ng-container *ngFor="let Resultados of resultados">
       <tr>
                  <td>{{resultado.numero_mesa}}</td>
                  <td>{{resultado.cedula_candidato}}</td>
                  <td>{{resultado.numero_votos}}</td>
                  <td>
                   <button type="button" class="btn btn-primary"
-                  (click)="editar(partido._id)">
+                  (click)="editar(resultado._id)">
                   <i class="fas fa-pencil-alt"></i>
                   </button>
                   
                   <button type="button" class="btn btn-danger"
-                  (click)="eliminar(partido._id)">
+                  (click)="eliminar(resultado._id)">
                   <i class="fas fa-solid fa-trash"></i>
                   </button>
                   </td>
