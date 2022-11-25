@@ -43,7 +43,7 @@ export class ListarComponent implements OnInit {
         data=>{
           this.partidos=data;
         }
-      )
+      );
   }
   
     editar(id:string):void{
