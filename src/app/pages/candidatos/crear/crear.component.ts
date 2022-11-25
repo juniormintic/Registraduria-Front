@@ -13,7 +13,7 @@ import { Partido } from '../../../modelos/partido.model';
   styleUrls: ['./crear.component.scss']
 })
 export class CrearComponent implements OnInit {
-  listadoPartido:Partido[] = [];
+  listadoPartidos:Partido[] = [];
   modoCreacion: boolean = true;
   id_candidato: string = "";
   intentoEnvio: boolean = false;
@@ -46,7 +46,7 @@ export class CrearComponent implements OnInit {
   listarPartidos():void{
     this.miServicioPartido.listar().
       subscribe(data => {
-        this.listadoPartido=data;
+        this.listadoPartidos=data;
       });
   }
   
@@ -59,7 +59,7 @@ export class CrearComponent implements OnInit {
       });
   }
   agregar(): void {
-    console.log(this.elCandidato)
+
     if (this.validarDatosCompletos()) {
       this.intentoEnvio = true;
    
