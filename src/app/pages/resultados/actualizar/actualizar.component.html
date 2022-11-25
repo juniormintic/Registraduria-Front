@@ -4,7 +4,7 @@
       <div class="row g-3">
         <div class="col-sm-6">
           <label for="firstName" class="form-label">Numero de mesa</label>
-          <input [(ngModel)]="elPartido.nombre" type="text" class="form-control" id="nombre" placeholder="" value="" required="">
+          <input [(ngModel)]="elResultado.numero_mesa" type="text" class="form-control" id="nombre" placeholder="" value="" required="">
           <div class="invalid-feedback">
             Valid first name is required.
           </div>
@@ -14,14 +14,14 @@
         <div class="row g-3">
         <div class="col-sm-6">
           <label for="lastName" class="form-label">Cedula candidato</label>
-          <input [(ngModel)]="elPartido.lema" type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+          <input [(ngModel)]="elResultado.cedula_candidato" type="text" class="form-control" id="lastName" placeholder="" value="" required="">
           <div class="invalid-feedback">
             Valid last name is required.
           </div>
         </div>
         <div class="col-sm-6">
             <label for="lastName" class="form-label">Cantidad de votos</label>
-            <input [(ngModel)]="elPartido.lema" type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+            <input [(ngModel)]="elResultado.numero_votos" type="text" class="form-control" id="lastName" placeholder="" value="" required="">
             <div class="invalid-feedback">
               Valid last name is required.
             </div>
