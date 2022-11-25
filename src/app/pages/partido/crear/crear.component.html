@@ -1,24 +1,47 @@
-<div class="col-md-7 col-lg-8">
-    <h4 class="mb-3">Crear Partido</h4>
-    <form class="needs-validation" novalidate="">
-      <div class="row g-3">
-        <div class="col-sm-6">
-          <label for="firstName" class="form-label">Nombre</label>
-          <input [(ngModel)]="elPartido.nombre" type="text" class="form-control" id="Nombre" placeholder="" value="" required="">
-          <div class="invalid-feedback">
-            Valid first name is required.
+<div class="col-lg-12">
+  <nb-card>
+      <nb-card-header *ngIf="modoCreacion">
+          CREAR PARTIDO
+      </nb-card-header>
+      <nb-card-header *ngIf="!modoCreacion">
+          ACTUALIZAR PARTIDO
+      </nb-card-header>
+      <nb-card-body>
+          <div class="row">
+              <div class="col-3">
+                  <label>Nombre</label>
+              </div>
+              <div class="col-9">
+                  <input class="form-control" type="text" 
+                         [disabled]="!modoCreacion" 
+                         [(ngModel)]="elPartido.nombre">
+                  <p *ngIf="intentoEnvio && elPartido.nombre=='' ">Requerido</p>
+              </div>
           </div>
-        </div>
-        </div>
-        <br>
-        <div class="row g-3">
-        <div class="col-sm-6">
-          <label for="lastName" class="form-label">Lema</label>
-          <input [(ngModel)]="elPartido.lema" type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-          <div class="invalid-feedback">
-            Valid last name is required.
+          <br>
+          <div class="row">
+              <div class="col-3">
+                  <label>lema</label>
+              </div>
+              <div class="col-9">
+                  <input class="form-control" type="text" 
+                         [(ngModel)]="elPartido.lema">
+                  <p *ngIf="intentoEnvio && elPartido.lema=='' ">Requerido</p>
+              </div>
           </div>
-        </div>
-    </div>
-    </form>
-  </div>
+          <br>
+         
+          <br>            
+          <div class="row">
+                  <button  *ngIf="modoCreacion" 
+                            class="btn btn-primary btn-block"  (click)="agregar()">
+                      Crear
+                  </button>
+                  <button *ngIf="!modoCreacion" 
+                          class="btn btn-primary btn-block"  (click)="editar()">
+                      Actualizar
+                  </button>
+          </div>
+      </nb-card-body>
+  </nb-card>
+</div>
