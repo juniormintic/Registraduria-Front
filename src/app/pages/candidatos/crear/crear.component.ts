@@ -4,6 +4,8 @@ import { Candidato } from '../../../modelos/candidato.mode';
 import { CandidatoService } from '../../../servicios/candidato.service';
 import { PartidoService } from '../../../servicios/partido.service';
 import Swal from 'sweetalert2';
+import { Partido } from '../../../modelos/partido.model';
+
 
 @Component({
   selector: 'ngx-crear',
@@ -11,31 +13,42 @@ import Swal from 'sweetalert2';
   styleUrls: ['./crear.component.scss']
 })
 export class CrearComponent implements OnInit {
+  listadoPartido:Partido[] = [];
   modoCreacion: boolean = true;
   id_candidato: string = "";
   intentoEnvio: boolean = false;
+  
   elCandidato: Candidato = {
     cedula: "",
     nombre: "",
     apellido: "",
-    numeroResolucion:"",    
+    numeroResolucion:"", 
+    partido:{}
+   
   }
+ 
 
   constructor(private miServicioCandidatos: CandidatoService,
-    private rutaActiva: ActivatedRoute,
+    private rutaActiva: ActivatedRoute,private miServicioPartido:PartidoService,
     private router: Router) { }
 
   ngOnInit(): void {
-
+    
     if (this.rutaActiva.snapshot.params.id_candidato) {
       this.modoCreacion = false;
       this.id_candidato = this.rutaActiva.snapshot.params.id_candidato;
       this.getCandidato(this.id_candidato)
+      this.listarPartidos();
     } else {
       this.modoCreacion = true;
     }
   }
-
+  listarPartidos():void{
+    this.miServicioPartido.listar().
+      subscribe(data => {
+        this.listadoPartido=data;
+      });
+  }
   
 
 
@@ -49,6 +62,7 @@ export class CrearComponent implements OnInit {
     console.log(this.elCandidato)
     if (this.validarDatosCompletos()) {
       this.intentoEnvio = true;
+   
       this.miServicioCandidatos.crear(this.elCandidato).
         subscribe(data => {
           Swal.fire(

@@ -54,10 +54,20 @@
             <br>
             <div class="row">
                 <div class="col-3">
-                    <label>Nombre Partido</label>
+                    <label>Partido</label>
                 </div>
-                
+                <div class="col-9">
+                    <select class="form-select" aria-label="Default select example"
+                    [(ngModel)]="elCandidato.partido">
+                    <option *ngFor="let partido of listadoPartidos" [value]="partido"
+                    [ngValue]="partido">{{partido.nombre}}</option>
+                    </select>
+
+                    <p *ngIf="intentoEnvio && elCandidato.partido=='' ">Requerido</p>
+                </div>
             </div>
+
+           
             <br>            
             <div class="row">
                     <button  *ngIf="modoCreacion" 
