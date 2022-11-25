@@ -25,6 +25,11 @@ export class ListarComponent implements OnInit {
   }
   editar(id:string):void{
     this.router.navigate(["pages/candidato/actualizar/"+id]);
+
+  }
+
+  asignarPartido(id:string):void{
+    this.router.navigate(["pages/candidato/asignarPartido/"+id]);
   }
 
   listar(){

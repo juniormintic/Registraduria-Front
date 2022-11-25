@@ -3,11 +3,7 @@
      <nb-card>
     <nb-card-header>Login</nb-card-header>
     <nb-card-body>
-    <div class="row">
-    <div class="col-lg-3">
-    <label>Usuario:</label>
-    </div>
-</div>
+ 
 
 <br>
 
@@ -29,3 +25,10 @@
         <input [(ngModel)]="contrasenia" type="password" class="form-control" id="exampleInputPassword1" placeholder="Digite su contrasena">
     </div>
     </div>
+    <br>
+
+<div class="row"> 
+    <div class="col">
+        <button (click)="login()" type="button" class="btn btn-success">Login</button>
+    </div>
+</div>

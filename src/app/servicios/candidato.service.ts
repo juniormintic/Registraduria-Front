@@ -25,7 +25,9 @@ export class CandidatoService {
     editar(id:string, elCandidato: Candidato) {
     return this.http.put(`${environment.url_api_gateway}/candidato/${id}`,elCandidato);
     }
-
+    asignarPartido(idCandidato:string, idPartido:string) {
+      return this.http.put(`${environment.url_api_gateway}/candidato/${idCandidato}/partido/${idPartido}`,null);
+      }
 
     eliminar(id:string){
       return  this.http.delete<Candidato>(`${environment.url_api_gateway}/candidato/${id}`,);

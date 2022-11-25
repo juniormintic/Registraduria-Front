@@ -10,13 +10,15 @@ import { EliminarComponent } from './eliminar/eliminar.component';
 
 import { NbCardModule } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
+import { AsignarCandidatoComponent } from './asignar-candidato/asignar-candidato.component';
 @NgModule({
   declarations: [
     ListarComponent,
     CrearComponent,
     ActualizarComponent,
     BuscarComponent,
-    EliminarComponent
+    EliminarComponent,
+    AsignarCandidatoComponent
   ],
   imports: [
     CommonModule,
