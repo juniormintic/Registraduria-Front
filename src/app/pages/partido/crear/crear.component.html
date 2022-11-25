@@ -19,6 +19,16 @@
             Valid last name is required.
           </div>
         </div>
+        <div class="row">
+          <button  *ngIf="modoCreacion" 
+                    class="btn btn-primary btn-block"  (click)="agregar()">
+              Crear
+          </button>
+          <button *ngIf="!modoCreacion" 
+                  class="btn btn-primary btn-block"  (click)="editar()">
+              Actualizar
+          </button>
+        </div>
     </div>
     </form>
   </div>
