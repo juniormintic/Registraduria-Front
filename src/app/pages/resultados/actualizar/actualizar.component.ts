@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Resultado } from '../../../modelos/resultado.model';
 
 @Component({
   selector: 'ngx-actualizar',
@@ -6,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./actualizar.component.scss']
 })
 export class ActualizarComponent implements OnInit {
-
+  elResultado: Resultado = {
+    numero_mesa: "",
+    cedula_candidato: "",
+    numero_votos: "",
+  }
   constructor() { }
 
   ngOnInit(): void {

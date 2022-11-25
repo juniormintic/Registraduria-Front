@@ -1,1 +1,36 @@
-<p>listar works!</p>
+<h4 class="mb-3">Lista de Resultados</h4>
+
+        <button type="button" class="btn btn-success"
+        (click)="agregar()">
+        <i class="fas fa-plus"></i>
+        </button>
+    
+<table class="table">
+    <thead>
+      <tr>
+        <th *ngFor="let columna of nombreColumnas">{{columna}}
+        </th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <ng-container *ngFor="let partido of partidos">
+      <tr>
+                 <td>{{resultado.numero_mesa}}</td>
+                 <td>{{resultado.cedula_candidato}}</td>
+                 <td>{{resultado.numero_votos}}</td>
+                 <td>
+                  <button type="button" class="btn btn-primary"
+                  (click)="editar(partido._id)">
+                  <i class="fas fa-pencil-alt"></i>
+                  </button>
+                  
+                  <button type="button" class="btn btn-danger"
+                  (click)="eliminar(partido._id)">
+                  <i class="fas fa-solid fa-trash"></i>
+                  </button>
+                  </td>
+                </tr>
+              </ng-container>
+          </tbody>
+        </table>
+      
