@@ -6,6 +6,8 @@ import { ListarComponent } from './listar/listar.component';
 import { ActualizarComponent } from './actualizar/actualizar.component';
 import { CrearComponent } from './crear/crear.component';
 import { EliminarComponent } from './eliminar/eliminar.component';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -17,7 +19,8 @@ import { EliminarComponent } from './eliminar/eliminar.component';
   ],
   imports: [
     CommonModule,
-    ResultadosRoutingModule
+    ResultadosRoutingModule,
+    FormsModule
   ]
 })
 export class ResultadosModule { }

@@ -62,6 +62,6 @@ export class ListarComponent implements OnInit {
             this.ngOnInit();
           });
       }
-    })
+    });
   }
 }
