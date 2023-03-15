@@ -8,7 +8,9 @@
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
+
+// para conexion local usar 'http://127.0.0.1:7777' 
 export const environment = {
   production: false,
-  url_api_gateway: 'http://127.0.0.1:7777'
+  url_api_gateway: 'https://registraduriaapigateway.onrender.com'
 };
