@@ -18,7 +18,7 @@ export class TokenInterceptor implements HttpInterceptor {
   constructor(private miServicioSeguridad: SeguridadService,
     private router: Router) {}
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<any>> {
     
     let infoUsuario = this.miServicioSeguridad.usuarioSesionActiva;
 
