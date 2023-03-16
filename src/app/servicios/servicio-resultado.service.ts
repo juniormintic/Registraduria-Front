@@ -11,23 +11,23 @@ export class ServicioResultadoService {
   private apiGatewayUrl = environment.url_api_gateway;
   constructor(private http: HttpClient) { }
   listar(): Observable<Resultado[]> {
-    return this.http.get<Resultado[]>(`${environment.url_api_gateway}/resultados`);
+    return this.http.get<Resultado[]>(`${this.apiGatewayUrl}/resultados`);
   }
 
   crear(elResultado: Resultado){
-    return this.http.post(`${environment.url_api_gateway}/resultados`,elResultado);
+    return this.http.post(`${this.apiGatewayUrl}/resultados`,elResultado);
   }
 
   editar(id:string,elResultado: Resultado){
-    return this.http.put(`${environment.url_api_gateway}/resultados/${id}`,elResultado);
+    return this.http.put(`${this.apiGatewayUrl}/resultados/${id}`,elResultado);
   }
 
   eliminar(id:string){
-    return  this.http.delete<Resultado>(`${environment.url_api_gateway}/resultados/${id}`,);
+    return  this.http.delete<Resultado>(`${this.apiGatewayUrl}/resultados/${id}`,);
   }
 
   getResultado(id:string): Observable<Resultado>{
-    return this.http.get<Resultado>(`${environment.url_api_gateway}/resultados/${id}`);
+    return this.http.get<Resultado>(`${this.apiGatewayUrl}/resultados/${id}`);
   }
 }
 
