@@ -8,9 +8,9 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class ServicioResultadoService {
-
+ private apiGatewayUrl = environment.url_api_gateway;
   constructor(private http: HttpClient) { }
-  private apiGatewayUrl = environment.url_api_gateway;
+ 
   listar(): Observable<Resultado[]> {
     return this.http.get<Resultado[]>(`${this.apiGatewayUrl}/resultados`);
   }
