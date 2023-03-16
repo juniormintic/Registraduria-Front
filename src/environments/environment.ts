@@ -12,5 +12,5 @@
 // para conexion local usar 'http://127.0.0.1:7777' 
 export const environment = {
   production: false,
-  url_api_gateway: 'https://registraduriaapigateway.onrender.com'
-};
+  url_api_gateway: 'http://127.0.0.1:7777' 
+}
