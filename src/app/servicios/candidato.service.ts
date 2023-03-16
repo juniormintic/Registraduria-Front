@@ -8,28 +8,28 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class CandidatoService {
-
+  private apiGatewayUrl=environment.url_api_gateway;
   constructor(private http: HttpClient) { }
       
   
   listar(): Observable<Candidato[]> {
-      return this.http.get<Candidato[]>(`${environment.url_api_gateway}/candidato`);
+      return this.http.get<Candidato[]>(`${this.apiGatewayUrl}/candidato`);
   }
   getCandidato(id: string): Observable<Candidato> {
-    return  this.http.get<Candidato>(`${environment.url_api_gateway}/candidato/${id}`);
+    return  this.http.get<Candidato>(`${this.apiGatewayUrl}/candidato/${id}`);
     }
   crear(elCandidato: Candidato) {
-    return this.http.post(`${environment.url_api_gateway}/candidato`,elCandidato);
+    return this.http.post(`${this.apiGatewayUrl}/candidato`,elCandidato);
     }
 
     editar(id:string, elCandidato: Candidato) {
-    return this.http.put(`${environment.url_api_gateway}/candidato/${id}`,elCandidato);
+    return this.http.put(`${this.apiGatewayUrl}/candidato/${id}`,elCandidato);
     }
     asignarPartido(idCandidato:string, idPartido:string) {
-      return this.http.put(`${environment.url_api_gateway}/candidato/${idCandidato}/partido/${idPartido}`,null);
+      return this.http.put(`${this.apiGatewayUrl}/candidato/${idCandidato}/partido/${idPartido}`,null);
       }
 
     eliminar(id:string){
-      return  this.http.delete<Candidato>(`${environment.url_api_gateway}/candidato/${id}`,);
+      return  this.http.delete<Candidato>(`${this.apiGatewayUrl}/candidato/${id}`,);
     }
   }

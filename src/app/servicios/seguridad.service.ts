@@ -9,7 +9,7 @@ import { Usuario } from '../modelos/usuario.model';
   providedIn: 'root'
 })
 export class SeguridadService {
-
+  private apiGatewayUrl=environment.url_api_gateway;
   elUsuario = new BehaviorSubject<Usuario>(new Usuario);
 
   constructor(private http: HttpClient) {
@@ -93,7 +93,7 @@ export class SeguridadService {
    * @returns Respuesta HTTP la cual indica si el usuario tiene permiso de acceso
    */
   login(infoUsuario: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(`${environment.url_api_gateway}/login`, infoUsuario);
+    return this.http.post<Usuario>(`${this.apiGatewayUrl}/login`, infoUsuario);
   }
 
 }
