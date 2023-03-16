@@ -5,5 +5,5 @@
  */
 export const environment = {
   production: true,
-
+  url_api_gateway: 'https://registraduriaapigateway.onrender.com' 
 };
