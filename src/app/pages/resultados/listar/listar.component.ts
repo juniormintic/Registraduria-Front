@@ -3,7 +3,8 @@ import { Resultado } from '../../../modelos/resultado.model';
 import { ServicioResultadoService } from '../../../servicios/servicio-resultado.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
-
+import { Candidato } from '../../../modelos/candidato.mode';
+import { Mesa } from '../../../modelos/mesa.model';
 @Component({
   selector: 'ngx-listar',
   templateUrl: './listar.component.html',
@@ -14,14 +15,16 @@ export class ListarComponent implements OnInit {
   modoCreacion: boolean = true;
   id_Resultado: string = "";
   intentoEnvio: boolean = false;
+  laMesa:Mesa={};
+elCandidato:Candidato={};
   elResultado: Resultado = {
-    numero_mesa: "",
-    cedula_candidato: "",
+    mesa: this.laMesa,
+    candidato:this.elCandidato,
     numero_votos: "",
   }
 
   nombreColumnas=["Numero mesa","Cedula candidato","numero votos","Opciones"];
-  resultados=[];
+  resultados: Resultado []=[];
 
   constructor(private miServicioResultado:ServicioResultadoService,private rutaActiva: ActivatedRoute,
     private router: Router) { }
@@ -46,11 +49,11 @@ export class ListarComponent implements OnInit {
   }
 
   editar(id:string):void{
-    this.router.navigate(["pages/resultado/actualizar"+id]);
+    this.router.navigate(["pages/resultados/crear/"+id]);
   }
 
   agregar():void{
-    this.router.navigate(["pages/resultado/crear"]);
+    this.router.navigate(["pages/resultados/crear"]);
   }
 
   eliminar(id:string):void{

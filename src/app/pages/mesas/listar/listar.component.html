@@ -1,0 +1,37 @@
+<h4 class="mb-3">Lista de mesas</h4>
+      <button type="button" class="btn btn-success"
+      (click)="agregar()">
+      <i class="fas fa-plus"></i>
+      </button>
+<table class="table">
+    <thead>
+      <tr>
+        <th *ngFor="let columna of nombreColumnas">{{columna}}
+            
+        </th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        <ng-container *ngFor="let mesa of mesas">
+            <tr>
+               <td>{{mesa.numero}}</td>
+               <td>{{mesa.cantidad_inscritos}}</td>
+             
+               <td>
+               
+              
+                <button type="button" class="btn btn-primary"
+                (click)="editar(mesa._id)">
+                <i class="fas fa-pencil-alt"></i>
+                </button>
+        
+                <button type="button" class="btn btn-danger"
+                (click)="eliminar(mesa._id)">
+                <i class="fas fa-solid fa-trash"></i>
+                </button>
+                </td>
+            </tr>
+        </ng-container>
+    </tbody>
+  </table>
+

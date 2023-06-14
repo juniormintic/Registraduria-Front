@@ -12,11 +12,10 @@ export class SeguridadService {
   private apiGatewayUrl=environment.url_api_gateway;
   elUsuario = new BehaviorSubject<Usuario>(new Usuario);
 
-  constructor(private http: HttpClient) {
-    this.validarSesion();
+  constructor(private http: HttpClient, private router:Router) {
+      this.validarSesion();
   }
-
-  /**
+  /**;
    * Permite obtener la información de usuario 
    * que tiene la función activa y servirá
    * para acceder a la información del token

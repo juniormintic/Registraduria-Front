@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListarComponent } from './listar/listar.component';
+
 import { CrearComponent } from './crear/crear.component';
-import { AsignarCandidatoComponent } from './asignar-candidato/asignar-candidato.component';
+
 
 const routes: Routes = [
   {
@@ -14,10 +15,10 @@ const routes: Routes = [
     component: CrearComponent
   },
   {
-    path: 'asignarPartido/:id',
-    component: AsignarCandidatoComponent
-  }
-
+    path: 'crear/:id_candidato',
+    component: CrearComponent
+  },
+  
 ];
 
 @NgModule({

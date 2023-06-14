@@ -5,6 +5,10 @@ import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
+
+
+
+
 //maneja las rutas de modulos
 const routes: Routes = [{
   path: '',
@@ -16,10 +20,21 @@ const routes: Routes = [{
       .then(m => m.SeguridadModule),
     },
     {
+      path: 'login',
+      loadChildren: () => import('./seguridad/seguridad.module')
+      .then(m => m.SeguridadModule),
+    },
+    {
 
       path: 'partido',
       loadChildren: () => import('./partido/partido.module')
       .then(m => m.PartidoModule),
+    },
+    {
+
+      path: 'mesas',
+      loadChildren: () => import('./mesas/mesas.module')
+      .then(m => m.MesasModule),
     },
     {
 
@@ -93,7 +108,7 @@ const routes: Routes = [{
     },
     {
       path: '',
-      redirectTo: 'dashboard',
+      redirectTo: 'seguridad/login',
       pathMatch: 'full',
     },
     {

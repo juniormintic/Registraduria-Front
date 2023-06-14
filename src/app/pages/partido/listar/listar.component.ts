@@ -38,24 +38,18 @@ export class ListarComponent implements OnInit {
       });
   }
  
-  buscarTodosPartidos(){
-      this.miServicioPartido.listar().subscribe(
-        data=>{
-          this.partidos=data;
-        }
-      );
-  }
+ 
   
     editar(id:string):void{
-      this.router.navigate(["pages/partido/actualizar/"+id]);
+      this.router.navigate(["pages/partido/crear/"+id]);
     }
     agregar():void{
       this.router.navigate(["pages/partido/crear"]);
     }
     eliminar(id:string):void{
       Swal.fire({
-          title: 'Eliminar Estudiante',
-          text: "Está seguro que quiere eliminar el estudiante?",
+          title: 'Eliminar partido',
+          text: "Está seguro que quiere eliminar el partido?",
           icon: 'warning',
           showCancelButton: true,
           confirmButtonColor: '#3085d6',

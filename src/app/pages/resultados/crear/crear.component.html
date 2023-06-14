@@ -1,1 +1,70 @@
 
+<div class="col-lg-12">
+    <nb-card>
+        <nb-card-header *ngIf="modoCreacion">
+            CREAR RESULTADO
+        </nb-card-header>
+        <nb-card-header *ngIf="!modoCreacion">
+            ACTUALIZAR RESULTADO
+        </nb-card-header>
+        <nb-card-body>
+            <div class="row">
+                <div class="col-3">
+                    <label>Cedula candidato</label>
+                </div>              
+                <div>
+                    <select *ngIf="modoCreacion" class="form-select" aria-label="Default select example"                     
+                        [(ngModel)]="infoResultado.candidato">
+                        <option   *ngFor="let candidato of listadoCandidatos" [value]="candidato"
+                        [ngValue]="candidato">{{candidato.cedula}}</option>                         
+                    </select>
+                    <select *ngIf="!modoCreacion " class="form-select" aria-label="Default select example"                     
+                        [(ngModel)]="infoResultado.candidato.cedula">
+                        <option   *ngFor="let candidato of listadoCandidatos" [value]="candidato"
+                        [ngValue]="infoResultado.candidato">{{candidato.cedula}}</option>                         
+                </select>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label>Mesa</label>
+                </div>
+                <div>
+                    <select *ngIf="modoCreacion" class="form-select" aria-label="Default select example"                    
+                     [(ngModel)]="infoResultado.mesa">
+                        <option  *ngFor="let mesa of listadoMesas" [value]="mesa"
+                        [ngValue]="mesa">{{mesa.numero}}</option>                       
+                    </select>
+                    <select *ngIf="!modoCreacion" class="form-select" aria-label="Default select example"                    
+                        [(ngModel)]="mesa.numero">
+                        <option   *ngFor="let mesa of listadoMesas" [value]="mesa"
+                        [ngValue]="infoResultado.mesa">{{mesa.numero }}</option>                       
+                   </select>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label>Votos</label>
+                </div>
+                <div class="col-9">
+                    <input class="form-control" type="text"                             
+                           [(ngModel)]="infoResultado.numero_votos">
+                    <p *ngIf="intentoEnvio && infoResultado.numero_votos=='' ">Requerido</p>
+                </div>
+            </div>
+            <br>
+  <div class="row">
+                    <button  *ngIf="modoCreacion" 
+                              class="btn btn-primary btn-block"  (click)="agregar()">
+                        Crear
+                    </button>
+                    <button *ngIf="!modoCreacion" 
+                            class="btn btn-primary btn-block"  (click)="editar()">
+                        Actualizar
+                    </button>
+            </div>
+        </nb-card-body>
+    </nb-card>
+  </div>

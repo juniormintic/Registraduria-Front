@@ -1,9 +1,8 @@
-import { CandidatosModule } from "../pages/candidatos/candidatos.module";
-import { MesasModule } from "../pages/mesas/mesas.module";
-
+import { Candidato} from "./candidato.mode";
+import { Mesa} from "./mesa.model";
 export class Resultado {
     _id?:string;
-    numero_mesa?:MesasModule;
-    cedula_candidato?:CandidatosModule;
+    mesa?:Mesa;
+    candidato?:Candidato;
     numero_votos?:string;
 }

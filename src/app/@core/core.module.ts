@@ -72,6 +72,7 @@ const socialLinks = [
 ];
 
 const DATA_SERVICES = [
+
   { provide: UserData, useClass: UserService },
   { provide: ElectricityData, useClass: ElectricityService },
   { provide: SmartTableData, useClass: SmartTableService },

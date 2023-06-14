@@ -25,9 +25,9 @@ export class CrearComponent implements OnInit {
       private router: Router) { }
   
       ngOnInit(): void {
-        if (this.rutaActiva.snapshot.params.id_estudiante) {
+        if (this.rutaActiva.snapshot.params.id_partido) {
           this.modoCreacion = false;
-          this.id_partido = this.rutaActiva.snapshot.params.id_estudiante;
+          this.id_partido = this.rutaActiva.snapshot.params.id_partido;
           this.getPartido(this.id_partido)
         } else {
           this.modoCreacion = true;
@@ -51,7 +51,7 @@ export class CrearComponent implements OnInit {
       }
     
     getPartido(id: string) {
-      this.miServicioPartido.getPartido(id).
+      this.miServicioPartido.getPartido(this.id_partido).
         subscribe(data => {
           this.elPartido = data;
         });

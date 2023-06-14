@@ -11,11 +11,11 @@ import Swal from 'sweetalert2';
 })
 export class ListarComponent implements OnInit {
   nombreColumnas=["Cedula","Nombre","Apellido","Numero resolucion","Partido","Opciones"];
-  candidatos =[];
+  candidatos:Candidato[] =[];
 
 
-  constructor(private miServicioCandidato:CandidatoService , private router: Router) { }
-
+  constructor(private miServicioCandidato:CandidatoService , private router: Router) { }  
+  
   ngOnInit(): void {
     this.listar();
   }
@@ -24,18 +24,16 @@ export class ListarComponent implements OnInit {
     this.router.navigate(["pages/candidato/crear"]);
   }
   editar(id:string):void{
-    this.router.navigate(["pages/candidato/actualizar/"+id]);
+    this.router.navigate(["pages/candidato/crear/"+id]);
 
   }
 
-  asignarPartido(id:string):void{
-    this.router.navigate(["pages/candidato/asignarPartido/"+id]);
-  }
 
   listar(){
       this.miServicioCandidato.listar().subscribe(
         data=>{
           this.candidatos=data;
+          console.log(data)
         }
       )
   }

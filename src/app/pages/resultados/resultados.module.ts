@@ -3,24 +3,26 @@ import { CommonModule } from '@angular/common';
 
 import { ResultadosRoutingModule } from './resultados-routing.module';
 import { ListarComponent } from './listar/listar.component';
-import { ActualizarComponent } from './actualizar/actualizar.component';
-import { CrearComponent } from './crear/crear.component';
-import { EliminarComponent } from './eliminar/eliminar.component';
-import { FormsModule } from '@angular/forms';
 
+import { CrearComponent } from './crear/crear.component';
+
+import { FormsModule } from '@angular/forms';
+import { NbCardModule } from '@nebular/theme';
 
 
 @NgModule({
   declarations: [
     ListarComponent,
-    ActualizarComponent,
+   
     CrearComponent,
-    EliminarComponent
+   
   ],
   imports: [
     CommonModule,
     ResultadosRoutingModule,
-    FormsModule
+    FormsModule,
+    NbCardModule,
+   
   ]
 })
 export class ResultadosModule { }

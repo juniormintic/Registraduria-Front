@@ -13,10 +13,10 @@
       </tr>
     </thead>
     <tbody class="table-group-divider">
-      <ng-container *ngFor="let Resultados of resultados">
+      <ng-container *ngFor="let resultado of resultados">
       <tr>
-                 <td>{{resultado.numero_mesa}}</td>
-                 <td>{{resultado.cedula_candidato}}</td>
+                 <td>{{resultado.mesa.numero}}</td>
+                 <td>{{resultado.candidato.cedula}}</td>
                  <td>{{resultado.numero_votos}}</td>
                  <td>
                   <button type="button" class="btn btn-primary"

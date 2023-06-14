@@ -56,14 +56,17 @@
                 <div class="col-3">
                     <label>Partido</label>
                 </div>
-                <div class="col-9">
-                    <select class="form-select" aria-label="Default select example"
-                    [(ngModel)]="elCandidato.partido">
-                    <option *ngFor="let partido of listadoPartidos" [value]="partido"
-                    [ngValue]="partido">{{partido.nombre}}</option>
+                <div>
+                    <select *ngIf="modoCreacion" class="form-select" aria-label="Default select example"                    
+                     [(ngModel)]="elCandidato.Partido">
+                        <option  *ngFor="let partido of listadoPartidos" [value]="partido"
+                        [ngValue]="elCandidato.Partido">{{partido.nombre}}</option>                       
                     </select>
-
-                    <p *ngIf="intentoEnvio && elCandidato.partido=='' ">Requerido</p>
+                    <select *ngIf="!modoCreacion " class="form-select" aria-label="Default select example"                    
+                        [(ngModel)]="elCandidato.Partido">
+                        <option [ngValue]="elCandidato.Partido" *ngFor="let partido of listadoPartidos " [value]="partido._id"
+                        >{{partido.nombre }}</option>                       
+                   </select>
                 </div>
             </div>
 

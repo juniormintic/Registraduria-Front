@@ -8,9 +8,11 @@ import { LoginComponent } from './login/login.component';
 import { NbCardModule } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+
   ],
   imports: [
     CommonModule,
